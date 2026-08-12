@@ -1,5 +1,9 @@
 # System Health Monitor
 
+## Jenkins Pipeline
+
+![System Health Monitor Jenkins Pipeline](../assets/images/system-health-monitor-jenkins.png)
+
 ## Overview
 
 A Linux system health monitoring project automated through Jenkins CI/CD.
