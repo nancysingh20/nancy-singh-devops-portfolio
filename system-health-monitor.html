@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>System Health Monitor | Nancy Singh</title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+    <style>
+
+        .project-page {
+            max-width: 1000px;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        .project-page h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .project-page h2 {
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        .project-page p {
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .project-image {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .architecture {
+            background: #0f172a;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: monospace;
+            line-height: 1.7;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Nancy Singh
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="../index.html#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="../index.html#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="../index.html#certifications">
+                    Certifications
+                </a>
+            </li>
+
+            <li>
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<main class="project-page">
+
+    <a href="../index.html"
+       class="back-link">
+        ← Back to Portfolio
+    </a>
+
+
+    <h1>System Health Monitor</h1>
+
+    <p>
+        A Linux system health monitoring project automated through
+        Jenkins CI/CD.
+    </p>
+
+
+    <h2>Project Overview</h2>
+
+    <p>
+        The project collects system information and monitors CPU,
+        memory and disk utilization against defined thresholds.
+    </p>
+
+    <p>
+        Jenkins automatically executes the Bash monitoring script,
+        generates a health report and archives the report as a
+        build artifact.
+    </p>
+
+
+    <h2>Technologies Used</h2>
+
+    <div class="tech-stack">
+
+        <span class="tech">Linux</span>
+
+        <span class="tech">Bash</span>
+
+        <span class="tech">Git</span>
+
+        <span class="tech">GitHub</span>
+
+        <span class="tech">Jenkins</span>
+
+        <span class="tech">CI/CD</span>
+
+        <span class="tech">Docker</span>
+
+    </div>
+
+
+    <h2>Architecture</h2>
+
+    <div class="architecture">
+
+GitHub
+   |
+   v
+Jenkins
+   |
+   v
+Checkout Source Code
+   |
+   v
+Bash Health Monitor
+   |
+   +---- CPU Check
+   |
+   +---- Memory Check
+   |
+   +---- Disk Check
+   |
+   v
+Overall System Health
+   |
+   +---- HEALTHY
+   |
+   +---- CRITICAL
+   |
+   v
+health_report.txt
+   |
+   v
+Jenkins Artifact
+
+    </div>
+
+
+    <h2>Jenkins Pipeline</h2>
+
+    <img
+        src="../assets/images/system-health-monitor-jenkins.png"
+        alt="System Health Monitor Jenkins Pipeline"
+        class="project-image"
+    >
+
+
+    <h2>Monitoring</h2>
+
+    <p>
+        The Bash script checks CPU, memory and disk utilization
+        and reports whether each resource is within the configured
+        threshold.
+    </p>
+
+    <p>
+        The project also captures hostname, current user, current
+        date, CPU statistics and system uptime.
+    </p>
+
+
+    <h2>Example Healthy Result</h2>
+
+    <div class="architecture">
+
+CPU Usage: 1%
+HEALTHY: CPU usage is below 80%.
+
+Memory Usage: 37%
+HEALTHY: Memory usage is below 80%.
+
+Root Disk Usage: 1%
+HEALTHY: Disk usage is below 80%.
+
+OVERALL SYSTEM HEALTH: HEALTHY
+
+    </div>
+
+
+    <h2>CI/CD Implementation</h2>
+
+    <p>
+        The Jenkins pipeline performs source-code checkout,
+        executes the monitoring script, generates the health report
+        and archives the report as a Jenkins artifact.
+    </p>
+
+
+    <h2>Failure Handling</h2>
+
+    <p>
+        If CPU, memory or disk utilization exceeds the configured
+        threshold, the monitoring script marks the overall system
+        health as CRITICAL and returns a non-zero exit code.
+    </p>
+
+    <p>
+        Jenkins then marks the pipeline as FAILED.
+    </p>
+
+
+    <h2>DevOps Concepts Demonstrated</h2>
+
+    <ul>
+
+        <li>Jenkins Declarative Pipeline</li>
+
+        <li>CI/CD automation</li>
+
+        <li>Linux administration</li>
+
+        <li>Bash scripting</li>
+
+        <li>Git and GitHub</li>
+
+        <li>Threshold-based monitoring</li>
+
+        <li>Build failure handling</li>
+
+        <li>Artifact archiving</li>
+
+        <li>Docker-based Jenkins environment</li>
+
+    </ul>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Nancy Singh · DevOps Engineer
+    </p>
+
+</footer>
+
+</body>
+
+</html>
